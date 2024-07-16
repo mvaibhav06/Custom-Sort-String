@@ -1,0 +1,20 @@
+class Solution {
+    public String customSortString(String order, String s) {
+        StringBuilder sb = new StringBuilder(s);
+        StringBuilder out = new StringBuilder();
+
+        for(int i=0; i<order.length(); i++){
+            char ch = order.charAt(i);
+            while(sb.indexOf(ch+"") != -1){
+                out.append(ch);
+                int index = sb.indexOf(ch+"");
+                sb.deleteCharAt(index);
+            }
+        }
+
+        for(int i=0; i<sb.length(); i++){
+            out.append(sb.charAt(i));
+        }
+        return out.toString();
+    }
+}
